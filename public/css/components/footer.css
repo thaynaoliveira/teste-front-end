@@ -1,0 +1,36 @@
+.footer{
+    padding: 16px 24px;
+    background-color: #49A1DE;
+    display: flex;
+    justify-content: space-around;
+}
+
+.perfil{
+    display: inline-block;
+    cursor: pointer;
+}
+
+.perfil img{
+    border-radius: 100%;
+    border: 1px solid white;
+    width: 50px;
+}
+
+.perfil h1{
+    color: #f2f2f2;
+    font-size: 18px;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 8px !important;
+}
+
+@media (max-width: 768px) {
+    .footer{
+        display: block;
+        text-align: center;
+    }
+
+    .footer img{
+        margin-bottom: 16px;
+    }
+}

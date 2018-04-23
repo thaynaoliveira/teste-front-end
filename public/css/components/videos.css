@@ -1,0 +1,35 @@
+.videos{
+    padding: 0 10%;
+    margin-top: 32px;
+    min-height: calc(100vh - 160px);
+}
+
+.videos h1{
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.videos p{
+    font-size: 14px;
+    margin: 8px 0 !important;
+}
+
+.videos__item{
+    margin: 16px 0;
+}
+
+.videos__item__info{
+    display: inline-block;
+    max-width: calc(100% - 346px);
+    margin-left: 16px;
+    vertical-align: middle;
+}
+
+.videos__pages{
+    text-align: right;
+    margin: 16px 0;
+}
+
+.videos__pages button{
+    margin: 0 8px;
+}
