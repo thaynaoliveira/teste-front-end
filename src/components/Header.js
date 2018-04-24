@@ -37,10 +37,27 @@ class Header extends Component {
         )
     }
 
+    home(e){
+        e.preventDefault();
+        browserHistory.push('/');
+    }
+
+    handleHeaderClass(){
+        if (this.props.location.pathname == '/'){
+            return 'header--full-height';
+        } else if (this.props.location.pathname == '/videos' && !(this.props.videos && this.props.videos.items && this.props.videos.items.length > 0)){
+            return 'header--full-height';
+        } else if (this.props.location.pathname.indexOf('/video/') > -1 && !(this.props.video && this.props.video.items && this.props.video.items.length > 0)){
+            return 'header--full-height';
+        }
+
+        return '';
+    }
+
     render() {
         return (
-            <div className={`header ${(this.props.videos && this.props.videos.items && this.props.videos.items.length > 0) || (this.props.video && this.props.video.items && this.props.video.items.length > 0) ? '' : 'header--full-height'}`}>
-                <img src="../images/icasei-logo.svg" />
+            <div className={`header ${this.handleHeaderClass()}`}>
+                <img src="../images/icasei-logo.svg" onClick={(e) => this.home(e)}/>
                 {this.renderSearchGroup()}
             </div>
         );

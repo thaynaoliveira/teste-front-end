@@ -6,11 +6,11 @@ import Loading from './components/Loading';
 
 class App extends Component {
     render() {
-        const { children } = this.props;
+        const { children, location } = this.props;
         return (
             <div id="app">
                 <content>
-                    <Header />
+                    <Header location={location} />
                     {this.props.loading ? <Loading /> : null}
                     {children}
                     <Footer />

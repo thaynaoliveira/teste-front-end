@@ -8,4 +8,8 @@
 .header--full-height{
     height: 100vh;
 }
+
+.header img{
+    cursor: pointer;
+}
     

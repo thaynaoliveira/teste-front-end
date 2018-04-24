@@ -28,6 +28,12 @@ class Videos extends Component {
         return '';
     }
 
+    handleDescription(description) {
+        return description.split('\n').map(
+            (item, key) => <span key={key}>{item}<br /></span>
+        )
+    }
+
     render() {
         if (this.props.videos && this.props.videos.items && this.props.videos.items.length > 0){
             return (
@@ -38,7 +44,7 @@ class Videos extends Component {
                             <img src={item.snippet.thumbnails.medium.url} width="260px" />
                             <div className="videos__item__info">
                                 <h1>{item.snippet.title}</h1>
-                                <p>{item.snippet.description}</p>
+                                <p>{this.handleDescription(item.snippet.description)}</p>
                                 <a onClick={(e) => this.visualizarVideo(e, item.id.videoId)}>visualizar</a>
                             </div>
                         </div>
