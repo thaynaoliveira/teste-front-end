@@ -1,12 +1,15 @@
 import {
 	VIDEOS,
 	VIDEO,
-	VIDEO_TEXT
+	VIDEO_TEXT,
+	LOADING
 } from './Actions';
 
 const initialState = {
 	videos: {},
-	video: {}
+	video: {},
+	videoText: '',
+	loading: false
 };
 
 export default function config(state = initialState, action) {
@@ -20,6 +23,9 @@ export default function config(state = initialState, action) {
 			break;
 		case VIDEO_TEXT:
 			return Object.assign({}, state, { videoText: action.data });
+			break;
+		case LOADING:
+			return Object.assign({}, state, { loading: action.data });
 			break;
 	}
 

@@ -10,6 +10,12 @@ class Header extends Component {
         dispatch(setReducer('VIDEO_TEXT', e.target.value));
     }
 
+    checkKey(e){
+        if (e.which === 13) { //se for a tecla enter
+            this.pesquisar(e);
+        }
+    }
+
     pesquisar(e) {
         e.preventDefault();
         let { dispatch } = this.props;
@@ -19,9 +25,9 @@ class Header extends Component {
     
     renderSearchGroup() {
         return (
-            <div className={`search-group ${this.props.videos && this.props.videos.items && this.props.videos.items.length > 0 ? 'search-group--top' : ''}`}>
+            <div className="search-group">
                 <div className="group">
-                    <input type="text" value={this.props.videoText} onChange={(e) => this.setVideoText(e)} />
+                    <input type="text" value={this.props.videoText} onChange={(e) => this.setVideoText(e)} onKeyUp={(e) => this.checkKey(e)} />
                     <span className="highlight"></span>
                     <span className="bar"></span>
                     <label>O que está procurando?</label>
@@ -33,7 +39,7 @@ class Header extends Component {
 
     render() {
         return (
-            <div className={`header ${!this.props.videos || !this.props.videos.items || this.props.videos.items.length == 0 ? 'header--full-height' : ''}`}>
+            <div className={`header ${(this.props.videos && this.props.videos.items && this.props.videos.items.length > 0) || (this.props.video && this.props.video.items && this.props.video.items.length > 0) ? '' : 'header--full-height'}`}>
                 <img src="../images/icasei-logo.svg" />
                 {this.renderSearchGroup()}
             </div>
@@ -44,6 +50,7 @@ class Header extends Component {
 function mapStateToProps(state) {
     return {
         videos: state.videos,
+        video: state.video,
         videoText: state.videoText
     };
 }

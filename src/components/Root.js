@@ -4,7 +4,6 @@ import { Router, Route, browserHistory, IndexRoute } from 'react-router';
 import App from '../App';
 import Home from './Home';
 import Video from './Video';
-import PageNotFound from './PageNotFound';
 import todoApp from '../Reducer';
 import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
@@ -22,7 +21,7 @@ export default class Root extends Component {
                         <IndexRoute component={Home} pageName="Home" pageDescription="Initial Page" />
                         <Route path="videos" component={Videos} pageName="Vídeos" pageDescription="Vídeos" />
                         <Route path="video/:id" component={Video} pageName="Vídeo" pageDescription="Vídeo" />
-                        <Route path="*" component={PageNotFound} pageName="Page not found" pageDescription="Page not found" />
+                        <Route path="*" component={Home} pageName="Home" pageDescription="Home" />
                     </Route>
                 </Router>
             </Provider>

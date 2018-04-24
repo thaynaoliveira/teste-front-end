@@ -7,7 +7,7 @@ class Video extends Component {
     componentWillMount(){
         if (this.props.routeParams.id) {
             let { dispatch } = this.props;
-            //dispatch(getVideoById(this.props.routeParams.id));
+            dispatch(getVideoById(this.props.routeParams.id));
         }
     }
 

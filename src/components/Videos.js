@@ -25,15 +25,15 @@ class Videos extends Component {
         if (this.props.videos && this.props.videos.pageInfo && this.props.videos.pageInfo.totalResults && this.props.videos.pageInfo.totalResults > 0){
             return `Cerca de ${this.props.videos.pageInfo.totalResults} resultados`;
         }
-        return 'Nenhum resultado encontrado';
+        return '';
     }
 
     render() {
-        return (
-            <div className="videos">
-                <h1>{this.handleTotal()}</h1>
-                {this.props.videos && this.props.videos.items && this.props.videos.items.length > 0 ?
-                    this.props.videos.items.map((item, index) =>
+        if (this.props.videos && this.props.videos.items && this.props.videos.items.length > 0){
+            return (
+                <div className="videos">
+                    <h1>{this.handleTotal()}</h1>
+                    {this.props.videos.items.map((item, index) =>
                         <div className="videos__item" key={`video-${index}`}>
                             <img src={item.snippet.thumbnails.medium.url} width="260px" />
                             <div className="videos__item__info">
@@ -42,19 +42,20 @@ class Videos extends Component {
                                 <a onClick={(e) => this.visualizarVideo(e, item.id.videoId)}>visualizar</a>
                             </div>
                         </div>
-                    )
-                : null }   
+                    )}
 
-                <div className="videos__pages">
-                    {this.props.videos.prevPageToken ?
-                        <button className="btn" onClick={(e) => this.props.selectPage(e, this.props.videos.prevPageToken)}>anterior</button>
-                        : null}
-                    {this.props.videos.nextPageToken ?
-                        <button className="btn" onClick={(e) => this.props.selectPage(e, this.props.videos.nextPageToken)}>próxima</button>
-                        : null}
+                    <div className="videos__pages">
+                        {this.props.videos.prevPageToken ?
+                            <button className="btn" onClick={(e) => this.props.selectPage(e, this.props.videos.prevPageToken)}>anterior</button>
+                            : null}
+                        {this.props.videos.nextPageToken ?
+                            <button className="btn" onClick={(e) => this.props.selectPage(e, this.props.videos.nextPageToken)}>próxima</button>
+                            : null}
+                    </div>
                 </div>
-            </div>
-        );
+            );
+        }
+        return null;
     }
 }
 

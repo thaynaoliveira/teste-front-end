@@ -1,7 +1,8 @@
 .header{
     position: relative;
     padding: 24px;
-    height: auto;
+    height: 100px;
+    transition: 0.5s;
 }
 
 .header--full-height{
