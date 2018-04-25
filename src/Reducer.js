@@ -2,7 +2,8 @@ import {
 	VIDEOS,
 	VIDEO,
 	VIDEO_TEXT,
-	LOADING
+	LOADING,
+    ALERT
 } from './Actions';
 
 const initialState = {
@@ -26,6 +27,9 @@ export default function config(state = initialState, action) {
 			break;
 		case LOADING:
 			return Object.assign({}, state, { loading: action.data });
+			break;
+		case ALERT:
+			return Object.assign({}, state, { showAlert: action.data });
 			break;
 	}
 

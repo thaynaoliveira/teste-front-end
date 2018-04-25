@@ -30,7 +30,8 @@
         text-align: center;
     }
 
-    .footer img{
-        margin-bottom: 16px;
+    .perfil{
+        margin-top: 16px;
+        display: block;
     }
 }

@@ -6,10 +6,25 @@
 }
 
 .header--full-height{
-    height: 100vh;
+    height: 100vh !important;
 }
 
 .header img{
     cursor: pointer;
 }
-    
+
+.header .alert{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+@media (max-width: 768px) {
+    .header{
+        height: 150px;
+    }
+
+    .search-group--top{
+        top: 70%;
+    }
+}

@@ -36,8 +36,7 @@ class Video extends Component {
                             <iframe width="800" height="600" src={`https://www.youtube.com/embed/${item.id}`}></iframe>
                             <div className="video__item__content">
                                 <h1>{item.snippet.title}</h1>
-
-                                <p>{this.handleDescription(item.snippet.description)}</p>
+                                {item.snippet.description ? <p>{this.handleDescription(item.snippet.description)}</p> : null}
                                 
                                 <div className="video__item__count">
                                     <div>

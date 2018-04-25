@@ -17,9 +17,13 @@
     margin: 16px 0;
 }
 
+.videos__item img, .videos__item h1, .videos__item p{
+    cursor: pointer;
+}
+
 .videos__item__info{
     display: inline-block;
-    max-width: calc(100% - 346px);
+    width: calc(100% - 346px);
     margin-left: 16px;
     vertical-align: middle;
 }
@@ -31,4 +35,19 @@
 
 .videos__pages button{
     margin: 0 8px;
+}
+
+@media (max-width: 768px) {
+    .videos{
+        padding: 0 5%;
+    }
+
+    .videos__item img{
+        width: 100%;
+    }
+
+    .videos__item__info{
+        width: auto;
+        margin: 16px 0 0;
+    }
 }

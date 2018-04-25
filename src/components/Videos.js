@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Masker from 'vanilla-masker';
 import { browserHistory } from 'react-router';
+import { getVideos } from '../Actions';
 
 class Videos extends Component {
 
@@ -19,6 +20,7 @@ class Videos extends Component {
 
     visualizarVideo(e, id){
         browserHistory.push('/video/' + id);
+        $("html, body").animate({ scrollTop: 0 }, 'slow');
     }
 
     handleTotal(){
@@ -41,10 +43,10 @@ class Videos extends Component {
                     <h1>{this.handleTotal()}</h1>
                     {this.props.videos.items.map((item, index) =>
                         <div className="videos__item" key={`video-${index}`}>
-                            <img src={item.snippet.thumbnails.medium.url} width="260px" />
+                            <img src={item.snippet.thumbnails.medium.url} width="260px" onClick={(e) => this.visualizarVideo(e, item.id.videoId)} />
                             <div className="videos__item__info">
-                                <h1>{item.snippet.title}</h1>
-                                <p>{this.handleDescription(item.snippet.description)}</p>
+                                <h1 onClick={(e) => this.visualizarVideo(e, item.id.videoId)}>{item.snippet.title}</h1>
+                                { item.snippet.description ? <p onClick={(e) => this.visualizarVideo(e, item.id.videoId)}>{this.handleDescription(item.snippet.description)}</p> : null }
                                 <a onClick={(e) => this.visualizarVideo(e, item.id.videoId)}>visualizar</a>
                             </div>
                         </div>
@@ -52,10 +54,10 @@ class Videos extends Component {
 
                     <div className="videos__pages">
                         {this.props.videos.prevPageToken ?
-                            <button className="btn" onClick={(e) => this.props.selectPage(e, this.props.videos.prevPageToken)}>anterior</button>
+                            <button className="btn" onClick={(e) => this.selectPage(e, this.props.videos.prevPageToken)}>anterior</button>
                             : null}
                         {this.props.videos.nextPageToken ?
-                            <button className="btn" onClick={(e) => this.props.selectPage(e, this.props.videos.nextPageToken)}>próxima</button>
+                            <button className="btn" onClick={(e) => this.selectPage(e, this.props.videos.nextPageToken)}>próxima</button>
                             : null}
                     </div>
                 </div>
