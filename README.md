@@ -1,6 +1,6 @@
-#Projeto
+# Projeto
 
-##Tecnologias
+## Tecnologias
 Nesse projeto foram utilizadas as tecnologias ReactJS, Redux, ES6, HTML5, CSS, entre outros.
 
 ## Instruções do projeto
