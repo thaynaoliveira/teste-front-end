@@ -43,7 +43,7 @@ class Videos extends Component {
                     <h1>{this.handleTotal()}</h1>
                     {this.props.videos.items.map((item, index) =>
                         <div className="videos__item" key={`video-${index}`}>
-                            <img src={item.snippet.thumbnails.medium.url} width="260px" onClick={(e) => this.visualizarVideo(e, item.id.videoId)} />
+                            <img src={item.snippet.thumbnails.medium.url} width="260px" onClick={(e) => this.visualizarVideo(e, item.id.videoId)} title={item.snippet.title} alt={item.snippet.title}/>
                             <div className="videos__item__info">
                                 <h1 onClick={(e) => this.visualizarVideo(e, item.id.videoId)}>{item.snippet.title}</h1>
                                 { item.snippet.description ? <p onClick={(e) => this.visualizarVideo(e, item.id.videoId)}>{this.handleDescription(item.snippet.description)}</p> : null }

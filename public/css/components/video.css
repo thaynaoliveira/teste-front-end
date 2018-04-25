@@ -1,6 +1,8 @@
 .video{
-    padding: 0 10%;
     min-height: calc(100vh - 160px);  
+    width: 800px;
+    max-width: 100%;
+    margin: 0 auto;
 }
 
 .video h1{
