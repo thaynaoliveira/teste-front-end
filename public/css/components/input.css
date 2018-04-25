@@ -2,7 +2,7 @@
   position:relative; 
 	display: inline-block;
 	margin-right: 16px;
-	max-width: calc(100% - 85px);
+	max-width: calc(100% - 115px);
 }
 input 				{
   font-size:14px;

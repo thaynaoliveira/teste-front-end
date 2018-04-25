@@ -40,9 +40,9 @@ class Header extends Component {
                     <input type="text" value={this.props.videoText} onChange={(e) => this.setVideoText(e)} onKeyUp={(e) => this.checkKey(e)} />
                     <span className="highlight"></span>
                     <span className="bar"></span>
-                    <label>pesquisar</label>
+                    <label>Pesquisar</label>
                 </div>
-                <button className="btn" onClick={(e) => this.pesquisar(e)} disabled={!this.props.videoText}><i className="glyphicon glyphicon-search"/></button>
+                <button className="btn" onClick={(e) => this.pesquisar(e)} disabled={!this.props.videoText}>Buscar</button>
             </div>
         )
     }
@@ -76,7 +76,7 @@ class Header extends Component {
                 <div className="alert alert-danger alert-dismissible" role="alert">
                     <button type="button" className="close" data-dismiss="alert" aria-label="Close" onClick={(e) => this.alertClosed(e)}><span aria-hidden="true">&times;</span></button>
                     Ops, algo deu errado! Por favor, tente novamente.
-            </div>
+                </div>
             )
         }
         return null;
